@@ -1,14 +1,10 @@
-# Default values for go-web-app-chart.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
-
 replicaCount: 1
 
 image:
-  repository: abhishekf5/go-web-app
+  repository: 825765397187.dkr.ecr.ap-south-1.amazonaws.com/goapp
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "10016307834"
+  tag: latest
 
 ingress:
   enabled: false
@@ -21,4 +17,3 @@ ingress:
       paths:
         - path: /
           pathType: ImplementationSpecific
-

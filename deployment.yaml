@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: go-web-app
-        image: <docker-user-name>/go-web-app
+        image: 825765397187.dkr.ecr.ap-south-1.amazonaws.com/goapp
         ports:
         - containerPort: 8080
