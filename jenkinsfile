@@ -39,14 +39,23 @@ pipeline {
 
         stage('Update Helm Chart') {
             steps {
-                script {
-                    def chartPath = 'go-web-app-chart/values.yaml'
-                    sh """
-                        sed -i 's|tag:.*|tag: "${IMAGE_TAG}"|' ${chartPath}
-                        git add ${chartPath}
-                        git commit -m "Update Helm chart image tag to ${IMAGE_TAG}"
-                        git push origin main
-                    """
+                withCredentials([string(credentialsId: 'Git', variable: 'GITHUB_PAT')]) {
+                    script {
+                        def chartPath = 'go-web-app-chart/values.yaml'
+                        def githubRepo = 'https://github.com/zeeshankanuga/goapp.git'
+                        def githubUsername = 'zeeshankanuga' // <-- replace with your actual GitHub username
+        
+                        sh """
+                            sed -i 's|tag:.*|tag: "${IMAGE_TAG}"|' ${chartPath}
+                            git config user.email "ci@jenkins.com"
+                            git config user.name "Jenkins CI"
+                            git add ${chartPath}
+                            git commit -m "Update Helm chart image tag to ${IMAGE_TAG}"
+        
+                            git remote set-url origin https://${githubUsername}:${GITHUB_PAT}@github.com/zeeshankanuga/goapp.git
+                            git push origin main
+                        """
+                    }
                 }
             }
         }
