@@ -4,7 +4,7 @@ image:
   repository: 825765397187.dkr.ecr.ap-south-1.amazonaws.com/goapp
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "20"
+  tag: "21"
 
 ingress:
   enabled: false
