@@ -2,6 +2,9 @@
 
 This project showcases a **fully automated CI/CD pipeline** for a production-grade **Go (Golang)** application using modern DevOps tools including **Docker**, **Kubernetes**, **Helm**, **Jenkins**, and **ArgoCD**. It covers everything from local testing and Dockerization to GitOps deployment with Helm and automated updates via Jenkins and ArgoCD.
 
+![argocd1](https://github.com/user-attachments/assets/b3580829-21f3-4704-8547-3768d91deab7)
+
+
 ## 📌 Key Features
 
 - ✅ Develop & test Go application locally
